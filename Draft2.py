@@ -98,7 +98,7 @@ def Clean_Data(raw_data, features):
 
 import os
 directory = 'C:/Users/Chris/Desktop/VirginiaHousingRawDataHTML_NEW/'
-directory2 = 'C:/Users/Chris/Desktop/HTML_DATA/650_850/' #need to debug some for variance in webpage coding cuz erros baths--sqft etc
+directory2 = 'C:/Users/Chris/Desktop/HTML_DATA/650_850/'
 #directory_list = []
 i=1
 for html_file in os.listdir(directory2):
