@@ -116,5 +116,4 @@ for html_file in os.listdir(directory2):
     data_row = Clean_Data(raw_data, feature_keywords)
     print(i,data_row) #need to categorize for county better maybe transform county to region lvl, nova, rva, etc
     i +=1
-print('finish getting year built case handling') #last piece then process data for calculating or dev case handling for sample summations etc.
-print('it is solved they just didnt list it for shit')
+
