@@ -11,7 +11,7 @@ II) def Clean_Data(main_extract, features)| return(file_data_list)
     #clean/process raw_data extract
 III) def WRITE_CSV...
     #append data_row to data CSV txt file
-IV) DATA ANALYSIS?
+IV) DATA ANALYSIS
 '''
 #I) INIT_HTML_EXTRACT
 def INIT_HTML_EXTRACT(file_location, init_keywords):
@@ -120,7 +120,6 @@ for folder in os.listdir(directory):
         init_keywords = ['"list_price":', '":null,"description":{"b', '<span aria-hidden="false">Year built</span>']
         raw_data = INIT_HTML_EXTRACT(file_location, init_keywords)
         data_row = Clean_Data(raw_data, column_names)
-        #Clean_Data(raw_data, column_names)
         print(data_row)
         with open(textFilePath, 'a') as f:
             for data in data_row:
@@ -128,27 +127,3 @@ for folder in os.listdir(directory):
                 f.write(',')
             f.write('\n')
             f.close()
-
-
-'''
-for html_file in os.listdir(directory2):
-    file_location = [directory2, html_file]
-    file_location = ''.join(file_location)
-    geo_location = html_file
-    geo_location = geo_location.split(',')
-    address = geo_location[0]
-    county = geo_location[1]
-    init_keywords = ['"list_price":', '":null,"description":{"b', '<span aria-hidden="false">Year built</span>']
-    raw_data = INIT_HTML_EXTRACT(file_location, init_keywords)
-    data_row = Clean_Data(raw_data,column_names)
-    Clean_Data(raw_data, column_names)
-    with open(textFilePath, 'a') as f:
-        for data in data_row:
-            f.write(str(data[1]))
-            f.write(',')
-        f.write('\n')
-        f.close()
-    #print(data_row)
-#print(i,data_row) #need to categorize for county better maybe transform county to region lvl, nova, rva, etc
-#load CSV file as pandas df then run model calculations and visualizations on that
-'''
