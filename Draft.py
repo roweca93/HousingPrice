@@ -120,10 +120,15 @@ for folder in os.listdir(directory):
         init_keywords = ['"list_price":', '":null,"description":{"b', '<span aria-hidden="false">Year built</span>']
         raw_data = INIT_HTML_EXTRACT(file_location, init_keywords)
         data_row = Clean_Data(raw_data, column_names)
-        print(data_row)
+        #print(data_row)
         with open(textFilePath, 'a') as f:
+            temp_string = ''
             for data in data_row:
-                f.write(str(data[1]))
-                f.write(',')
+                temp_string = temp_string + (str(data[1])) + ','
+            temp_string = temp_string.rstrip(',')
+            print(temp_string)
+            f.write(temp_string)
             f.write('\n')
             f.close()
+
+
