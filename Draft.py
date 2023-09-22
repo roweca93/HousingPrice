@@ -38,7 +38,7 @@ def INIT_HTML_EXTRACT(file_location, init_keywords):
                         for predictor in pred_vars:
                             pred_start_pos = temp_string.find(predictor)
                             if pred_start_pos <0:
-                                raw_data.append('Missing')
+                                raw_data.append('NaN')
                             else:
                                 pred_start_pos = temp_string.find(predictor)
                                 temp_string2 = temp_string[pred_start_pos:]
@@ -51,7 +51,7 @@ def INIT_HTML_EXTRACT(file_location, init_keywords):
                         if init_start_pos == -1:
                             init_start_pos = line.find('Build Complete')
                             if init_start_pos == -1:
-                                raw_data.append('Missing')
+                                raw_data.append('NaN')
                             else:
                                 temp_string = line[init_start_pos:init_start_pos + 800]
                                 temp_start_pos = temp_string.find('bHKrcK"')
@@ -82,13 +82,13 @@ def Clean_Data(raw_data, column_names):
             if t[0] == 'Pool':
                 t[1] = 'No'
             else:
-                t[1] = 'Missing'
+                t[1] = 'NaN'
         elif t[1] == '':
-            t[1] = 'Missing'
+            t[1] = 'NaN'
         for char in remove_chars:
              t[1] = t[1].replace(char,"")
         if t[0] in float_columns:
-            if t[1] == 'Missing':
+            if t[1] == 'NaN':
                 next
             else:
                 t[1] = float(t[1])
