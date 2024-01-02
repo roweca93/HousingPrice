@@ -86,7 +86,7 @@ with open('C:/Users/rowec/OneDrive/Desktop/HouseData.txt', encoding="utf-8") as 
         temp_list = []
         for r in (correlation_matrix[col]):
             deg_free = deg_free_list[counter]
-            t_score = (r * math.sqrt(deg_free) / (0.000001 + math.sqrt(1 - r ** 2)))
+            t_score = (r * math.sqrt(deg_free) / (0.000001 + math.sqrt(1 - r ** 2))) #add note about fisher transformation of r to z for p value calculations of r
             r = round(r, 4)
             p_val = t.sf(t_score, deg_free);
             p_val = round(p_val, 4)
